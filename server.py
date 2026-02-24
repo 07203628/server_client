@@ -1,5 +1,6 @@
 import socket
 import ssl
+import psutil
 
 host = 0
 port = 5555
@@ -19,6 +20,10 @@ while True:
     token = server_socket.recv(1024).decode()
     if token == "clave123":
         secure_socket.send("Autenticado. Iniciando monitoreo...".encode())
+        cpu = psutil.cpu_percent(interval=1)
+        ram = psutil.virtual_memory().percent
+        datos = f"CPU: {cpu}% | RAM: {ram}"
+        secure_socket.send(datos.encode())
         
     else:
         secure_socket.send("Acceso denegado.".encode())
