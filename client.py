@@ -30,7 +30,7 @@ def conectar_obtener():
         label_alerta.config(text=str(e), fg="red")
         
 ventana = tk.Tk()
-ventana.title("Monitoreo - Kali Server")
+ventana.title("Monitoreo - Server")
 ventana.geometry("450x250")
 
 label_titulo = tk.Label(ventana, text="Monitor de Procesos Distribuidos", font=("Helvetica", 16, "bold"))
